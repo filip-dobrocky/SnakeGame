@@ -19,16 +19,20 @@ void printAtPos(coord pos, char c, char **map) // tlac a ulozenie do mapy na urc
 	map[pos.y][pos.x] = c;
 }
 
-void generateFood(coord* food, int w, int h, char **map) // vygenerovanie jedla na nahodnu poziciu mimo hada
+void generateFood(coord* food, int width, int height, char **map) // vygenerovanie jedla na nahodnu volnu poziciu
 {
 	do
 	{
-		food->y = rand() % h;
-		food->x = rand() % w;
+		food->y = rand() % height;
+		food->x = rand() % width;
 	} while (map[food->y][food->x] != ' ');
 	printAtPos(*food, '*', map);
 }
 
+int isObstacle(int x, int y, int width, int height, char **map) // kontrola, ci je na pozicii x,y prekazka alebo je pozicia mimo pola
+{
+	return ((x > width - 1 || x < 0 || y > height - 1 || y < 0) || map[y][x] == 'o' || map[y][x] == 'X');
+}
 
 void gameOver(int *game, int score)
 {
@@ -46,7 +50,7 @@ void updateTitle(unsigned int score)
 	SetConsoleTitle(title);
 }
 
-unsigned int newGame(int width, int height, char **map, int speed)
+unsigned int newGame(int width, int height, char **map, int speed) // nova hra, vracia skore
 {
 	int game = 1, paused = 0;
 	int len = 1;
@@ -135,9 +139,12 @@ unsigned int newGame(int width, int height, char **map, int speed)
 		prev = snake[0]; // ulozenie predchodzej pozicie hlavy
 
 		// kontrola, ci je pred hadom prekazka
-		if ((snake[0].x + dirX > width - 1 || snake[0].x + dirX < 0 || snake[0].y + dirY > height - 1 || snake[0].y + dirY < 0) || map[snake[0].y + dirY][snake[0].x + dirX] == 'o' || map[snake[0].y + dirY][snake[0].x + dirX] == 'X')
+		if (isObstacle(snake[0].x + dirX, snake[0].y + dirY, width, height, map))
 		{
 			gameOver(&game, score);
+			for (int i = 0; i < len; ++i) // vycistenie mapy
+				map[snake[i].y][snake[i].x] = ' ';
+			map[food.y][food.x] = ' ';
 			return score;
 		}
 		else // pohyb hlavy hada
@@ -173,7 +180,7 @@ unsigned int newGame(int width, int height, char **map, int speed)
 			snake = (coord*)realloc(snake, ++len * sizeof(coord));
 			snake[len - 1] = prev;
 		}
-		else // delay
+		else // doba posunutia = 350ms/rychlost
 			Sleep(350 / speed);
 	}
 

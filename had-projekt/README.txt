@@ -5,7 +5,7 @@
   Formát súboru je nasledovnı:
   - Hracia plocha je ohranièená znakom '#'. Ve¾kos hracej plochy mono meni, ale nesmie by menšia ako 20x20.
   - Prekáky sú vyznaèené znakom 'X'.
-  - Na konci súboru NIE JE znak nového riadku, ani iadne ïalšie prebytoèné znaky.
+  - Na konci súboru nie je znak nového riadku. Nikde inde nie sú iadne ïalšie prebytoèné znaky.
   Ak súbor neexistuje, spustí sa hra bez naèítania prekáok, s vıchodzími rozmermi plochy.
 
 Príklad mapy:
