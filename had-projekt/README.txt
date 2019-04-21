@@ -1,14 +1,24 @@
-- Pre optimálne fungovanie hry je vhodné v konzoli nastavi font s rovnakou šírkou a vıškou znakov (napríklad Raster Fonts 8x8).
-  Had sa potom bude pohybova rovnakou rıchlosou aj v horizontálnom, aj vo vertikálnom smere.
-- 10 najlepších skóre sa zapíše do súboru highscores.txt. Ak súbor neexistuje, program ho sám vytvorí.
-- Ak existuje súbor map.txt v správnom formáte, hra z neho naèíta prekáky.
-  Formát súboru je nasledovnı:
-  - Hracia plocha je ohranièená znakom '#'. Ve¾kos hracej plochy mono meni, ale nesmie by menšia ako 20x20.
-  - Prekáky sú vyznaèené znakom 'X'.
-  - Na konci súboru nie je znak nového riadku. Nikde inde nie sú iadne ïalšie prebytoèné znaky.
-  Ak súbor neexistuje, spustí sa hra bez naèítania prekáok, s vıchodzími rozmermi plochy.
+A school project - snake game for Windows written mostly in plain C using Visual Studio (yuck).
 
-Príklad mapy:
+
+
+
+
+
+
+
+
+- Pre optimÃ¡lne fungovanie hry je vhodnÃ© v konzoli nastaviÅ¥ font s rovnakou Å¡Ã­rkou a vÃ½Å¡kou znakov (naprÃ­klad Raster Fonts 8x8).
+  Had sa potom bude pohybovaÅ¥ rovnakou rÃ½chlosÅ¥ou aj v horizontÃ¡lnom, aj vo vertikÃ¡lnom smere.
+- 10 najlepÅ¡Ã­ch skÃ³re sa zapÃ­Å¡e do sÃºboru highscores.txt. Ak sÃºbor neexistuje, program ho sÃ¡m vytvorÃ­.
+- Ak existuje sÃºbor map.txt v sprÃ¡vnom formÃ¡te, hra z neho naÄÃ­ta prekÃ¡Å¾ky.
+  FormÃ¡t sÃºboru je nasledovnÃ½:
+  - Hracia plocha je ohraniÄenÃ¡ znakom '#'. VeÄ¾kosÅ¥ hracej plochy moÅ¾no meniÅ¥, ale nesmie byÅ¥ menÅ¡ia ako 20x20.
+  - PrekÃ¡Å¾ky sÃº vyznaÄenÃ© znakom 'X'.
+  - Na konci sÃºboru nie je znak novÃ©ho riadku. Nikde inde nie sÃº Å¾iadne ÄalÅ¡ie prebytoÄnÃ© znaky.
+  Ak sÃºbor neexistuje, spustÃ­ sa hra bez naÄÃ­tania prekÃ¡Å¾ok, s vÃ½chodzÃ­mi rozmermi plochy.
+
+PrÃ­klad mapy:
 ##############################################
 #                                            #
 #       X                                    #
